@@ -15,6 +15,7 @@ export const BlogPost = () => {
     const { slug } = useParams()
 
     const post = posts.find(p => p.slug === slug)
+    
     return (
         <AppLayout>
             <main className={styles.main}>
