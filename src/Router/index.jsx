@@ -5,18 +5,20 @@ import { BlogPost } from "../pages/BlogPost";
 import { Register } from "../pages/Register";
 import { Login } from "../pages/Login";
 import { Logout } from "../pages/Logout";
+import { AuthLayout } from "../layouts/Auth";
+import { AppLayout } from "../layouts/App";
 
 export const AppRouter = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/auth">
+        <Route path="/auth" element={<AuthLayout />}>
           <Route path="register" element={<Register />} />
           <Route path="login" element={<Login />} />
           <Route path="logout" element={<Logout />} />
         </Route>
 
-        <Route path="/">
+        <Route path="/" element={<AppLayout />}>
           <Route
             path=""
             element={
