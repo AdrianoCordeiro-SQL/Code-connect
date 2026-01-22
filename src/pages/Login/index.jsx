@@ -44,7 +44,7 @@ export const Login = () => {
                             type="password"
                             required
                         />
-                        <Checkbox label="Lembrar-me" required />
+                        <Checkbox label="Lembrar-me" />
                     </Fieldset>
                     <Button type="submit">
                         Login <IconArrowFoward />
