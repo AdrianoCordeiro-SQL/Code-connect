@@ -8,12 +8,22 @@ import { Author } from "../../components/Author";
 import Typography from "../../components/Typography";
 import { CommentList } from "../../components/CommentList";
 import ReactMarkdown from "react-markdown";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
+import { useEffect } from "react";
 
 export const BlogPost = () => {
+
   const { slug } = useParams();
+  const navigate = useNavigate()
 
   const post = posts.find((p) => p.slug === slug);
+
+    useEffect( () => {
+      if (!post) {
+        navigate('/not-found')
+      }
+    }, [post, navigate])
+
 
   return (
     <main className={styles.main}>
