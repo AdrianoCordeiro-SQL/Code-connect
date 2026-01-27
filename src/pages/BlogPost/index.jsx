@@ -1,7 +1,5 @@
 import styles from "./blogpost.module.css";
 import { ThumbsUpButton } from "../../components/CardPost/ThumbsUpButton";
-import { IconButton } from "../../components/IconButton";
-import { IconChat } from "../../components/icons/IconChat";
 import { Author } from "../../components/Author";
 import Typography from "../../components/Typography";
 import { CommentList } from "../../components/CommentList";
@@ -10,33 +8,37 @@ import { useNavigate, useParams } from "react-router";
 import { useEffect, useState } from "react";
 import { ModalComment } from "../../components/ModalComment";
 import { http } from "../../api";
+import { usePostInteractions } from "../../hooks/usePostInteractions";
 
 export const BlogPost = () => {
   const { slug } = useParams();
   const [post, setPost] = useState(null);
-  const navigate = useNavigate();
-  const [comments, setComments] = useState([])
+  const {
+    likes,
+    comments,
+    handleNewComment,
+    handleDeleteComment,
+    handleLikeButton,
+  } = usePostInteractions(post);
 
-  const handleNewComment = (comment) => {
-    setComments([comment, ...comments])
-  }
+  const navigate = useNavigate();
 
   useEffect(() => {
-    http.get(`blog-posts/slug/${slug}`)
+    http
+      .get(`blog-posts/slug/${slug}`)
       .then((response) => {
-        setPost(response.data)
-        setComments(response.data.comments)
+        setPost(response.data);
       })
 
-      .catch(error => {
-        if(error.status == 404) {
-          navigate('/not-found')
+      .catch((error) => {
+        if (error.status == 404) {
+          navigate("/not-found");
         }
-      })
+      });
   }, [slug, navigate]);
 
-  if(!post) {
-    return null
+  if (!post) {
+    return null;
   }
 
   return (
@@ -57,11 +59,14 @@ export const BlogPost = () => {
         <footer className={styles.footer}>
           <div className={styles.actions}>
             <div className={styles.action}>
-              <ThumbsUpButton loading={false} />
-              <p>{post.likes}</p>
+              <ThumbsUpButton
+                loading={false}
+                onClick={() => handleLikeButton(post.id)}
+              />
+              <p>{likes}</p>
             </div>
             <div className={styles.action}>
-              <ModalComment onSuccess={handleNewComment} postId={post?.id}/>
+              <ModalComment onSuccess={handleNewComment} postId={post?.id} />
               <p>{comments.length}</p>
             </div>
           </div>
@@ -72,7 +77,7 @@ export const BlogPost = () => {
       <div className={styles.code}>
         <ReactMarkdown>{post.markdown}</ReactMarkdown>
       </div>
-      <CommentList comments={comments} />
+      <CommentList comments={comments} onDelete={handleDeleteComment} />
     </main>
   );
 };
