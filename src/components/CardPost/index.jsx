@@ -5,6 +5,7 @@ import styles from "./cardpost.module.css";
 
 import { ThumbsUpButton } from "./ThumbsUpButton";
 import { Link } from "react-router";
+import { http } from "../../api";
 
 export const CardPost = ({ post }) => {
   const [likes, setLikes] = useState(post.likes);
@@ -14,17 +15,15 @@ export const CardPost = ({ post }) => {
     const token = localStorage.getItem('access_token')
 
 
-    fetch(`http://localhost:3000/blog-posts/${post.id}/like`, {
-      method: 'POST',
+    http.post(`blog-posts/${post.id}/like`, {}, {
       headers: {
         Authorization: `Bearer ${token}`
       }
 
-    }).then((response) => {
-      if (response.ok) {
-          setLikes((oldState) => oldState + 1);
-          console.log("incrementar like");
-      }
+    })
+        .then(() => {
+            setLikes((oldState) => oldState + 1);
+            console.log("incrementar like");
     });
   };
 
