@@ -20,15 +20,9 @@ export const CardPost = ({ post }) => {
 
   const handleLikeButton = () => {
 
-    const token = localStorage.getItem('access_token')
 
 
-    http.post(`blog-posts/${post.id}/like`, {}, {
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-
-    })
+    http.post(`blog-posts/${post.id}/like`)
         .then(() => {
             setLikes((oldState) => oldState + 1);
             console.log("incrementar like");
