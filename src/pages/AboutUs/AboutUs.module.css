@@ -1,92 +1,112 @@
 .container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 40px 20px;
-  color: #ffffff;
-  display: flex;
-  flex-direction: column;
-  gap: 48px;
-}
-
-.hero {
-  text-align: center;
+  background-color: var(--graphite);
+  width: 995px;
+  height: 1656px;
+  color: var(--offwhite);
+  padding: 2px 1px;
+  font-family: sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .hero img {
   width: 100%;
-  max-width: 600px;
+  height: 397px;
+
   border-radius: 8px;
   margin-bottom: 24px;
 }
 
 .title {
-  color: #88ff33; /* Verde neon do CodeConnect */
-  font-size: 2.5rem;
-  font-weight: 700;
+  color: var(--highlight-green);
+  font-size: 44px;
+  line-height: 120%;
 }
 
 .subtitle {
-  font-size: 1.5rem;
-  color: #cccccc;
+  font-size: 37px;
+  font-weight: medium;
+  line-height: 120%;
+  margin-top: 16px;
+  margin-bottom: 56px;
 }
 
 .content {
+  max-width: 800px;
   line-height: 1.6;
-  font-size: 1.1rem;
-  color: #bbbbbb;
+  font-size: 22px;
 }
 
 .missionSection {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
+  display: flex;
   align-items: center;
-  margin-top: 40px;
+  gap: 40px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.missionSection div {
+  flex: 1;
 }
 
 .missionSection h2,
 .joinUs h2 {
-  color: #ffffff;
   font-size: 1.8rem;
-  margin-bottom: 16px;
+  margin-bottom: 15px;
 }
 
 .missionSection img {
+  flex: 1;
   width: 100%;
-  border-radius: 12px;
+  max-width: 400px;
+  border-radius: 8px;
 }
 
 .joinUs {
-  background: rgba(136, 255, 51, 0.05); /* Leve brilho verde no fundo */
-  padding: 32px;
-  border-radius: 16px;
-  border: 1px solid rgba(136, 255, 51, 0.2);
+  margin-bottom: 60px;
 }
 
 .footerLogo {
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-top: 24px;
-  padding-top: 32px;
+  gap: 20px;
   border-top: 1px solid #333;
+  padding-top: 30px;
+  width: 100%;
 }
 
 .footerLogo img {
-  height: 40px;
+  width: 75px;
+  height: 87px;
+}
+
+.footerLogo p {
+  color: var(--medium-gray);
+  font-size: 31px;
+  line-height: 150%;
+  letter-spacing: 0px;
+  flex: 1;
+  text-align: left;
 }
 
 /* Responsividade para telas menores */
 @media (max-width: 768px) {
   .missionSection {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+    text-align: center;
   }
 
-  .title {
-    font-size: 2rem;
+  .footerLogo {
+    flex-direction: column;
+    text-align: center;
   }
 }
