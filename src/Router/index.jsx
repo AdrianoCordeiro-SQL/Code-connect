@@ -7,6 +7,7 @@ import { Logout } from "../pages/Logout";
 import { AuthLayout } from "../layouts/Auth";
 import { AppLayout } from "../layouts/App";
 import { NotFound } from "../pages/NotFound";
+import { AboutUs } from "../pages/AboutUs";
 
 export const AppRouter = () => {
   return (
@@ -21,6 +22,7 @@ export const AppRouter = () => {
         <Route path="/" element={<AppLayout />}>
           <Route path="" element={<Feed />} />
           <Route path="blog-post/:slug" element={<BlogPost />} />
+          <Route path="about-us" element={<AboutUs />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

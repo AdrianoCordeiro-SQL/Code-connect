@@ -44,7 +44,7 @@ export const Aside = () => {
             </AsideLink>
           </li>
           <li>
-            <AsideLink href="#">
+            <AsideLink href="/about-us">
               <IconInfo />
               Sobre nós
             </AsideLink>
