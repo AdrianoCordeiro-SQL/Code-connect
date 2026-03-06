@@ -22,7 +22,9 @@ export const Aside = () => {
           </li>
           <li>
             {isAuthenticated ? (
-              <AsideLink href="/auth/logout">Publicar</AsideLink>
+              <AsideLink href="/blog-posts">
+                <Button> Publicar </Button>
+              </AsideLink>
             ) : (
               <AsideLink href="/auth/login">
                 <IconLogin /> Login

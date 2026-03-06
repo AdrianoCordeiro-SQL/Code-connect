@@ -98,7 +98,6 @@
   text-align: left;
 }
 
-/* Responsividade para telas menores */
 @media (max-width: 768px) {
   .missionSection {
     flex-direction: column;
