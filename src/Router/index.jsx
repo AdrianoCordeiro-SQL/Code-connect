@@ -9,6 +9,7 @@ import { AppLayout } from "../layouts/App";
 import { NotFound } from "../pages/NotFound";
 import { AboutUs } from "../pages/AboutUs";
 import { Publicar } from "../pages/Publicar";
+import { Perfil } from "../pages/Perfil";
 
 export const AppRouter = () => {
   return (
@@ -24,6 +25,7 @@ export const AppRouter = () => {
           <Route path="" element={<Feed />} />
           <Route path="blog-post/:slug" element={<BlogPost />} />
           <Route path="blog-posts" element={<Publicar />} />
+          <Route path="perfil" element={<Perfil />} />
           <Route path="about-us" element={<AboutUs />} />
           <Route path="*" element={<NotFound />} />
         </Route>

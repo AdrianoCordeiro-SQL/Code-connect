@@ -1,0 +1,151 @@
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  color: var(--light-gray);
+}
+
+.profileInfo {
+  display: flex;
+  align-items: flex-start;
+  gap: 2.5rem;
+}
+
+.profileImage {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid transparent;
+}
+
+.textInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.usernameRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.username {
+  color: var(--medium-gray);
+  font-size: 1rem;
+}
+
+.followButton {
+  background: transparent;
+  border: 1px solid var(--medium-gray);
+  color: var(--light-gray);
+  border-radius: 4px;
+  padding: 0.25rem 1rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  font-family: "Prompt", sans-serif;
+}
+
+.followButton:hover {
+  background: var(--gray);
+  color: var(--white);
+  border-color: var(--gray);
+}
+
+.name {
+  color: var(--highlight-green);
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.bio {
+  color: var(--medium-gray);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin: 0;
+  max-width: 600px;
+}
+
+.stats {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.875rem;
+  color: var(--medium-gray);
+  margin-top: 0.5rem;
+}
+
+.stats strong {
+  color: var(--light-gray);
+}
+
+/* --- Linha Divisória --- */
+.divider {
+  border: 0;
+  border-top: 1px solid var(--gray);
+  margin: 2.5rem 0;
+}
+
+/* --- Menu de Abas --- */
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.tabs button {
+  background: none;
+  border: none;
+  color: var(--medium-gray);
+  font-size: 1rem;
+  cursor: pointer;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid transparent;
+  font-family: "Prompt", sans-serif;
+  transition:
+    color 0.2s,
+    border-color 0.2s;
+}
+
+.tabs button:hover {
+  color: var(--offwhite);
+}
+
+.tabs .activeTab {
+  color: var(--highlight-green);
+  border-bottom: 2px solid var(--highlight-green);
+  font-weight: 500;
+}
+
+/* --- Grade de Cards (2 colunas) --- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.empty {
+  grid-column: span 2;
+  text-align: center;
+  color: var(--medium-gray);
+  padding: 2rem;
+}
+
+@media (max-width: 768px) {
+  .profileInfo {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .usernameRow {
+    justify-content: center;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

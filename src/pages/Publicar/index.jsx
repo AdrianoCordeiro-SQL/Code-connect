@@ -21,7 +21,7 @@ export const Publicar = () => {
     data.append("image", image);
 
     try {
-      // Tenta buscar o token (verifique se no seu login você salvou como 'token' ou 'access_token')
+      // Tenta buscar o token
       const token =
         localStorage.getItem("token") || localStorage.getItem("access_token");
 

@@ -38,7 +38,7 @@ export const Aside = () => {
             </AsideLink>
           </li>
           <li>
-            <AsideLink href="#">
+            <AsideLink href="/perfil">
               <IconAccount />
               Perfil
             </AsideLink>
